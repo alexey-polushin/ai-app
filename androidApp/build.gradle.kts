@@ -29,6 +29,21 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    sourceSets.named("main").configure {
+        assets.srcDir(
+            rootProject.layout.projectDirectory
+                .dir("composeApp/build/intermediates/assets/debug/mergeDebugAssets")
+                .asFile,
+        )
+    }
+}
+
+afterEvaluate {
+    listOf("mergeDebugAssets", "mergeReleaseAssets").forEach { taskName ->
+        tasks.named(taskName).configure {
+            dependsOn(":composeApp:bundleLibRuntimeToDirAndroidMain")
+        }
+    }
 }
 
 dependencies {
