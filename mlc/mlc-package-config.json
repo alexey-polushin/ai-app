@@ -1,0 +1,14 @@
+{
+  "device": "android",
+  "model_list": [
+    {
+      "model": "HF://mlc-ai/Qwen2.5-Coder-0.5B-Instruct-q0f16-MLC",
+      "model_id": "Qwen2.5-Coder-0.5B-Instruct-q0f16-MLC",
+      "estimated_vram_bytes": 2000000000,
+      "overrides": {
+        "context_window_size": 2048,
+        "prefill_chunk_size": 128
+      }
+    }
+  ]
+}
